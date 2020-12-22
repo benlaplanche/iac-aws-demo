@@ -14,12 +14,13 @@ provider "aws" {
 }
 
 
-resource "aws_s3_bucket" "snykcon-2020-pictures" {
-  bucket = "snykcon-2020-pictures"
+resource "aws_s3_bucket" "pictures-of-waleeds-hair" {
+  bucket = "pictures-of-waleeds-hair"
   acl    = "public-read-write"
 
   tags = {
-    Name        = "Snykcon 2020 Pictures"
+    Name        = "Pictures of Waleeds Hair"
     Environment = "Production"
+    Hairstyle = "Extreme"
   }
 }
