@@ -13,10 +13,15 @@ provider "aws" {
   shared_credentials_file = "/Users/benlaplanche/.aws/credentails"
 }
 
+variable "s3_acl" {
+  type = string
+  default = "public-read-write"
+}
+
 
 resource "aws_s3_bucket" "pictures-of-waleeds-hair" {
   bucket = "pictures-of-waleeds-hair"
-  acl    = "public-read-write"
+  acl    = var.s3_acl
 
   tags = {
     Name        = "Pictures of Waleeds Hair"
