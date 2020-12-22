@@ -12,6 +12,8 @@ jobs:
       - name: Run Snyk to check Terraform file for issues
         continue-on-error: true
         uses: snyk/actions/iac@master
+        with:
+          file: s3.tf
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       - uses: github/codeql-action/upload-sarif@v1
@@ -21,11 +23,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Run Snyk to check Kubernetes manifest file for issues
+      - name: Run Snyk to check Terraform file for issues
         continue-on-error: false
         uses: snyk/actions/iac@master
         with:
-          file: .
+          file: s3.tf
           args: --severity-threshold=high
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
